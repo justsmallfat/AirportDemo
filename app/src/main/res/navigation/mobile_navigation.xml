@@ -22,4 +22,10 @@
         android:name="com.smallfat5566.airportdemo.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_exchange_rate"
+        android:name="com.smallfat5566.airportdemo.ui.ExchangeRateFragment"
+        android:label="@string/title_exchange_rate"
+        tools:layout="@layout/fragment_exchange_rate" />
 </navigation>
