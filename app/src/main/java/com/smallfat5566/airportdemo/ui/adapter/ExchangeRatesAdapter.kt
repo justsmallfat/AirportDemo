@@ -25,6 +25,9 @@ class ExchangeRatesAdapter(
         binding: RecycleItemExchangeRatesBinding
     ) : BaseViewHolder<Map.Entry<String, Double>, RecycleItemExchangeRatesBinding>(binding) {
         override fun bind(item: Map.Entry<String, Double>, onItemClick: (Map.Entry<String, Double>) -> Unit) {
+            binding.root.setOnClickListener {
+                onItemClick(item)
+            }
             binding.ratesNameTextView.text = item.key
             val formatter = DecimalFormat("#,###.##")
             val formattedNumber = formatter.format(item.value)

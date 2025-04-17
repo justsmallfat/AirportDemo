@@ -73,10 +73,10 @@ class ExchangeRatesWebService (context: Context,
 
     suspend fun getRates(context: Context,
                          apikey: String = Freecurrencyapi_Key,
-                         base_currency: String = "USD",
+                         baseCurrency: String? = "USD",
                          currencies: String? = null ): APISampleResponse =
         fetchData(context, default = APISampleResponse(data = emptyMap())) {
-            getRates(apikey = apikey, base_currency = base_currency, currencies = currencies)
+            getRates(apikey = apikey, baseCurrency = baseCurrency, currencies = currencies)
         }
 
 }

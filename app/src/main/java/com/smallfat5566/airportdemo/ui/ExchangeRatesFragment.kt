@@ -38,7 +38,8 @@ class ExchangeRatesFragment : AbstractFragment() {
 
 
         val adapter = ExchangeRatesAdapter { item ->
-            Toast.makeText(fragContext, "點擊了: ${item.key}", Toast.LENGTH_LONG).show()
+            viewModel.currentBaseCurrency.postValue(item.key)
+            viewModel.fetchRates(fragContext)
         }
 
         binding.exchangeRatesRecyclerView.layoutManager = LinearLayoutManager(fragContext)
@@ -46,6 +47,10 @@ class ExchangeRatesFragment : AbstractFragment() {
 
         viewModel.allExchangeRates.observe(viewLifecycleOwner) { exchangeRates ->
             adapter.submitList(exchangeRates)
+        }
+
+        viewModel.currentBaseCurrency.observe(viewLifecycleOwner) { baseCurrency ->
+            binding.currentBaseCurrencyTextView.setText(baseCurrency)
         }
 
         viewModel.fetchRates(fragContext)
