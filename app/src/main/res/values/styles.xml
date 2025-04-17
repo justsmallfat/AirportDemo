@@ -1,14 +1,33 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="BottomSheetFullHeightDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
+    </style>
+
+    <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@color/transparent</item>
+    </style>
+
+
+    <style name="CustomBottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:background">@drawable/rounded_bottom_sheet</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
+
     <style name="List_Layout">
         <item name="android:minHeight">48dp</item>
         <item name="android:paddingVertical" >@dimen/list_vertical_padding</item>
         <item name="android:paddingHorizontal" >@dimen/list_horizontal_padding</item>
     </style>
 
-
     <style name="Fragment_Layout">
         <item name="android:paddingVertical" >@dimen/fragment_vertical_padding</item>
         <item name="android:paddingHorizontal" >@dimen/fragment_horizontal_padding</item>
+    </style>
+
+    <style name="BottomSheetDialog_Layout">
+        <item name="android:background">@drawable/rounded_bottom_sheet</item>
     </style>
 
     <style name="Dialog_Main_Layout">
@@ -24,4 +43,16 @@
         <item name="android:scaleType">fitCenter</item>
         <item name="android:background">@color/transparent</item>
     </style>
+
+    <style name="CalculatorButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:layout_rowWeight">1</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:backgroundTint">#E0E0E0</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
 </resources>

@@ -1,14 +1,14 @@
 package com.smallfat5566.airportdemo.ui
 
-import androidx.fragment.app.viewModels
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.smallfat5566.airportdemo.databinding.FragmentExchangeRateBinding
 import com.smallfat5566.airportdemo.ui.adapter.ExchangeRatesAdapter
+import com.smallfat5566.airportdemo.ui.dialog.ExchangeCurrencyBottomSheetDialog
 
 class ExchangeRatesFragment : AbstractFragment() {
 
@@ -39,8 +39,12 @@ class ExchangeRatesFragment : AbstractFragment() {
 
         val adapter = ExchangeRatesAdapter { item ->
             viewModel.currentBaseCurrency.postValue(item.key)
-            viewModel.fetchRates(fragContext)
+            viewModel.fetchRates(fragContext) { rates ->
+                val dialog = ExchangeCurrencyBottomSheetDialog()
+                dialog.show(childFragmentManager, "")
+            }
         }
+
 
         binding.exchangeRatesRecyclerView.layoutManager = LinearLayoutManager(fragContext)
         binding.exchangeRatesRecyclerView.adapter = adapter
@@ -53,7 +57,7 @@ class ExchangeRatesFragment : AbstractFragment() {
             binding.currentBaseCurrencyTextView.setText(baseCurrency)
         }
 
-        viewModel.fetchRates(fragContext)
+        viewModel.fetchRates(fragContext){}
 
         return root
     }

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:padding="@dimen/item_padding"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/BottomSheetDialog_Layout"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/closeButton"
+            android:layout_width="@dimen/image_button_size"
+            android:layout_height="@dimen/image_button_size"
+            android:src="@drawable/icon_cross"
+            style="@style/Button_Image"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- 計算機容器：有圓角和陰影 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/calculatorConstraintLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/closeButton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="@dimen/item_margin_big"
+            android:layout_marginVertical="@dimen/item_margin">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <!-- 顯示區 -->
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/displayTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_bigger"
+                    android:gravity="end"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <!-- 按鈕區 -->
+                <GridLayout
+                    android:id="@+id/buttonGridLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alignmentMode="alignMargins"
+                    android:columnCount="4"
+                    android:rowCount="5"
+                    android:useDefaultMargins="true"
+                    app:layout_constraintTop_toBottomOf="@+id/displayTextView">
+
+                    <!-- 按鈕範例 -->
+                    <Button android:text="7" style="@style/CalculatorButton"/>
+                    <Button android:text="8" style="@style/CalculatorButton"/>
+                    <Button android:text="9" style="@style/CalculatorButton"/>
+                    <Button android:text="÷" style="@style/CalculatorButton"/>
+
+                    <Button android:text="4" style="@style/CalculatorButton"/>
+                    <Button android:text="5" style="@style/CalculatorButton"/>
+                    <Button android:text="6" style="@style/CalculatorButton"/>
+                    <Button android:text="×" style="@style/CalculatorButton"/>
+
+                    <Button android:text="1" style="@style/CalculatorButton"/>
+                    <Button android:text="2" style="@style/CalculatorButton"/>
+                    <Button android:text="3" style="@style/CalculatorButton"/>
+                    <Button android:text="-" style="@style/CalculatorButton"/>
+
+                    <Button android:text="0" style="@style/CalculatorButton"/>
+                    <Button android:text="C" style="@style/CalculatorButton"/>
+                    <Button android:text="=" style="@style/CalculatorButton"/>
+                    <Button android:text="+" style="@style/CalculatorButton"/>
+
+                </GridLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
